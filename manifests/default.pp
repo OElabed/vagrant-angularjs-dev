@@ -186,3 +186,28 @@ exec { '(Gem modules) install compass':
 	require => Exec [ 'install ruby dev' ]
 }
 
+
+# VirtualBox guest additions
+
+exec { '(VirtualBox guest additions) install dkms':
+	command => '/usr/bin/apt-get install virtualbox-guest-dkms -yq',
+	require => Exec [ 'apt-get update' ]
+}
+
+exec { '(VirtualBox guest additions) install utils':
+	command => '/usr/bin/apt-get install virtualbox-guest-utils -yq',
+	require => Exec [ 'apt-get update' ]
+}
+
+exec { '(VirtualBox guest additions) install x11':
+	command => '/usr/bin/apt-get install virtualbox-guest-x11 -yq',
+	require => Exec [ 'apt-get update' ]
+}
+
+
+# C++ build tools
+
+exec { 'install g++':
+	command => '/usr/bin/apt-get install build-essential -yq',
+	require => Exec [ 'apt-get update' ]
+}
