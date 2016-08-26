@@ -2,7 +2,7 @@
   "ports" : {
      "http-server" : {
           ":host": 5580,
-          ":guest": 8000
+          ":guest": 3000
       },
       "server2" : {
           ":host": 6628,

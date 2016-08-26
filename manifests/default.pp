@@ -47,6 +47,10 @@ exec { 'install nodejs':
 	require => Exec [ 'download nodejs' ]	
 }
 
+exec { 'add node_modules folder':
+	command => '/bin/mkdir /home/vagrant/node_modules'
+}
+
 package { 'nodejs':
   ensure  => 'present',
   require => Exec [ 'install nodejs' ]
